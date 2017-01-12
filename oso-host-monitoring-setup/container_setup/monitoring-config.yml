@@ -18,7 +18,7 @@ container_metrics_config:
 
 metric_sender_config:
   host:
-    name: "host-monitoring-{{ lookup('env', 'container_uuid')[0:4] }}"
+    name: vm-48-114.eng.lab.tlv.redhat.com
   zagg:
     active: False
     url: https://localhost:8443
@@ -28,10 +28,10 @@ metric_sender_config:
     verbose: False
     debug: False
   hawk:
-    active: False
-    url: https://localhost:8443
-    user: admin
-    pass: password
+    active: True
+    url: https://vm-48-114.eng.lab.tlv.redhat.com:8443
+    user: hawkular
+    pass: F5uFTJWG3_Phvci
     ssl_verify: False
     verbose: False
     debug: False
