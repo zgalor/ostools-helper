@@ -4,7 +4,7 @@
 # ./container_setup/monitoring-config.yml with your local definitions
 
 CONFIG_SOURCE=$(readlink -f ./container_setup)
-sudo docker run --rm=true -it --name oso-centos7-host-monitoring \
+sudo docker run -d -it --name oso-centos7-host-monitoring \
            --privileged                                     \
            --pid=host                                       \
            --net=host                                       \
@@ -15,6 +15,7 @@ sudo docker run --rm=true -it --name oso-centos7-host-monitoring \
            -v /var/lib/docker:/var/lib/docker:ro            \
            -v /var/lib/docker/volumes/shared:/shared:rw     \
            -v /var/run/docker.sock:/var/run/docker.sock     \
-           -v ${CONFIG_SOURCE}:/container_setup:ro \
+           -v /var/lib/rpm:/host/var/lib/rpm:ro             \
+	   -v ${CONFIG_SOURCE}:/container_setup:ro \
            --memory 512m \
            zgalor/oso-centos7-host-monitoring $@
