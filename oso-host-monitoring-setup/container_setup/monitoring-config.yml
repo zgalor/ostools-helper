@@ -18,7 +18,7 @@ container_metrics_config:
 
 metric_sender_config:
   host:
-    name: vm-48-114.eng.lab.tlv.redhat.com
+    name: vm-48-124.eng.lab.tlv.redhat.com
   zagg:
     active: False
     url: https://localhost:8443
@@ -29,9 +29,9 @@ metric_sender_config:
     debug: False
   hawk:
     active: True
-    url: https://vm-48-114.eng.lab.tlv.redhat.com:8443
+    url: https://metrics.10.35.48.125.xip.io
     user: hawkular
-    pass: F5uFTJWG3_Phvci
+    pass: wcqfjThxIcmov6f
     ssl_verify: False
     verbose: False
     debug: False
