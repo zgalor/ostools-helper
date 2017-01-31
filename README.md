@@ -25,8 +25,29 @@ vi ostools-helper/oso-host-monitoring-setup/container_setup/monitoring-config.ym
 You will have to setup you hostname here:
 https://github.com/zgalor/ostools-helper/blob/master/oso-host-monitoring-setup/container_setup/monitoring-config.yml#L21
 
+Make sure the hawkular section is enabled (```active: True```) here:
+https://github.com/zgalor/ostools-helper/blob/master/oso-host-monitoring-setup/container_setup/monitoring-config.yml#L31
+
 and also setup your hawkular url and password here: 
 https://github.com/zgalor/ostools-helper/blob/master/oso-host-monitoring-setup/container_setup/monitoring-config.yml#L32-L34
+
+#### Advanced Setting - Adding regex based tagging rules
+
+To enable regular expression based tagging rules add the following subsection under the ```metric_sender_config``` section: 
+https://github.com/zgalor/ostools-helper/blob/master/oso-host-monitoring-setup/container_setup/monitoring-config.yml#L19:
+
+```
+metadata_rules:
+  - regex: .*memory.*
+    tags:
+      units: byte
+  - regex: .*version.*
+    tags:
+      descriptior_name: version
+```
+
+This will automatically create tags for keys that match the regex pattern.
+This is only an example, add your own regex and tags.
 
 ### Getting the docker image
 
